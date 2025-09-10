@@ -12,35 +12,15 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-extension EdgeCore.EdgeClient : EdgeCore.EdgeEngineClient {
+extension EdgeCore.ClientLibrary : @retroactive EdgeCore.ClientRuntime {
   public static func configureRuntimePort(to port: Swift.Int32) throws
-  @available(*, deprecated, renamed: "configureRuntimePort(to:)")
-  public static func setCustomPort(number: Swift.Int32) -> Swift.Result<Swift.Void, Foundation.NSError>
   public static func expectedRuntimeVersion() -> Swift.String
-  @available(*, deprecated, renamed: "expectedRuntimeVersion")
-  public static func expectedEdgeEngineVersion() -> Swift.String
   public static func manageRuntimeLifecycle(manage: Swift.Bool) throws
-  @available(*, deprecated, renamed: "manageRuntimeLifecycle")
-  public static func manageEdgeEngineLifecycle(manage: Swift.Bool) -> Swift.Result<Swift.Void, Foundation.NSError>
-  public static func startRuntime(parameters: EdgeCore.EdgeClient.RuntimeParameters) async throws
-  @available(*, deprecated, renamed: "startRuntime")
-  final public func startEdgeEngine(parameters: EdgeCore.EdgeClient.StartupParameters) async -> Swift.Result<Swift.Void, Foundation.NSError>
-  public static func stopRuntime()
-  @available(*, deprecated, renamed: "stopRuntime")
-  final public func stopEdgeEngine()
-  public static func restartRuntime() async throws
-  @available(*, deprecated, renamed: "restartRuntime")
-  final public func restartEdgeEngine() async -> Swift.Result<Swift.Void, Foundation.NSError>
-  public static func resetRuntime() throws
-  @available(*, deprecated, renamed: "resetRuntime")
-  final public func resetEdgeEngine() -> Swift.Result<Swift.Void, Foundation.NSError>
-  public static func runtimeIsRunning() -> Swift.Bool
-  @available(*, deprecated, renamed: "runtimeIsRunning")
-  final public func edgeEngineIsRunning() -> Swift.Bool
-  public static func runtimeParameters() -> EdgeCore.EdgeClient.RuntimeParameters?
-  @available(*, deprecated, renamed: "runtimeParameters")
-  final public func edgeEngineParameters() -> EdgeCore.EdgeClient.StartupParameters?
+  @_Concurrency.MainActor public static func startRuntime(parameters: EdgeCore.ClientLibrary.RuntimeParameters) async throws
+  @_Concurrency.MainActor public static func stopRuntime()
+  @_Concurrency.MainActor public static func restartRuntime() async throws
+  @_Concurrency.MainActor public static func resetRuntime() throws
+  @_Concurrency.MainActor public static func runtimeIsRunning() -> Swift.Bool
+  public static func runtimeParameters() -> EdgeCore.ClientLibrary.RuntimeParameters?
   public static func runtimeLifecycleIsManaged() -> Swift.Bool
-  @available(*, deprecated, renamed: "runtimeLifecycleIsManaged")
-  final public func edgeEngineLifecycleIsManaged() -> Swift.Bool
 }

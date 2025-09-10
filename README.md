@@ -1,13 +1,13 @@
 # mimik Client Library
 
-The **mimik Client Library** is a unified SDK for integrating and managing **mimik OE** — a lightweight mimik operating environment enabling developers to build, deploy, and orchestrate microservices and AI-powered workflows across hybrid edge-cloud systems.
+The **mimik Client Library** is a unified SDK for integrating and managing **mim OE** — a lightweight mimik operating environment enabling developers to build, deploy, and orchestrate microservices and AI-powered workflows across hybrid edge-cloud systems.
 
 It abstracts away the complexities of:
 - OAuth2 / JWT-based authentication
 - Network node discovery and orchestration
 - Lifecycle and configuration management for microservices
 - AI model integration, unified assistant streaming prompts
-
+- Developer Console integration for authentication, app management, session handling, and ready-to-use SwiftUI authentication views
 
 ---
 
@@ -61,6 +61,13 @@ The fastest way to get started:
 - AI model execution
 - Secure communication and auth
 
+**Developer Console** is the companion API that manages:
+- Developer authentication and session state
+- Authorization of mim OE runtime access
+- Application creation, listing, and deletion
+- Issuance of tokens for secure client–server communication
+- Ready-to-use SwiftUI authentication views
+
 ---
 
 ## ✨ Features Overview
@@ -75,6 +82,7 @@ The mimik Client Library provides a unified API to:
 - OAuth2-compliant developer and user login
 - Support for token exchange, scopes, signup/login flows
 - Handle account recovery, password changes, and deletions
+- **Developer Console Authentication APIs** for email/password auth, signup, password reset, token issuance
 
 ### 🌍 Discover & Orchestrate Edge Nodes
 - Auto-discover available edge nodes
@@ -98,7 +106,11 @@ The mimik Client Library provides a unified API to:
 - Unified output handling via `AssistantOutput`
 - Supports chat UI, system automation, and batch processing
 
----
+### 🧑‍💻 Developer Console Integration
+- AuthenticationView (SwiftUI): prebuilt login screen with app branding, error handling, and supplementary flows
+- Applications API: create, list, find, and delete applications
+- Session Management: manage developer sessions with token-based flows
+- ID Tokens: issue and manage ID tokens for secure runtime access
 
 ## 📦 Pod Distribution
 
@@ -111,7 +123,10 @@ Use the table below to choose the CocoaPods that best match your use case:
 | [`mim-OE-ai-SE-iOS-developer`](https://github.com/mimikgit/cocoapod-mim-OE-ai-SE-iOS-developer) | Core + mim OE + AI | ✅ | Vision/Language AI support |
 | [`EdgeService`](https://github.com/mimikgit/cocoapod-EdgeService) | Deployment tools |  | For managing custom microservices |
 
-> **✅ Recommended Default:** Add `EdgeCore` and `mim-OE-ai-SE-iOS-developer` to your Podfile.
+> ⚠️ **Note:** The **ClientRuntime** comes in four variants, based on the license type (**Full** or **Developer**) and whether AI support is **enabled** or **disabled**.  
+> The pods listed above cover the **Developer** license variants. For **Full license** distributions, please contact [mimik Support](https://mimik.com/contact-us/).
+
+**✅ Recommended Default:** Add `EdgeCore` and `mim-OE-ai-SE-iOS-developer` to your Podfile.
 
 ---
 
@@ -126,11 +141,14 @@ Use the table below to choose the CocoaPods that best match your use case:
 ## 📄 Documentation
 
 - **API Reference (EdgeCore):**  
-  [EdgeClient Reference](https://mimikgit.github.io/cocoapod-EdgeCore/documentation/edgecore/edgeclient)  
-  [EdgeEngineClient Protocol](https://mimikgit.github.io/cocoapod-EdgeCore/documentation/edgecore/edgeengineclient)
+  [ClientLibrary Reference](https://mimikgit.github.io/cocoapod-EdgeCore/documentation/edgecore/clientlibrary)  
+  [ClientRuntime Protocol](https://mimikgit.github.io/cocoapod-EdgeCore/documentation/edgecore/clientruntime)
 
 - **EdgeService Reference:**  
   [EdgeServiceClient Docs](https://mimikgit.github.io/cocoapod-EdgeService/documentation/edgeservice)
+
+- **Developer Console Reference:**  
+  [DeveloperConsole APIs](https://mimikgit.github.io/cocoapod-EdgeCore/documentation/edgecore/developerconsole)
 
 - All APIs are also documented in Xcode with built-in method and struct descriptions.
 
@@ -150,6 +168,10 @@ Use the table below to choose the CocoaPods that best match your use case:
 
 ### 📦 Manage Microservices
 - [Deploying Edge Microservices](https://devdocs.mimik.com/tutorials/01-submenu/02-submenu/04-index)
+
+### 🔑 Developer Console Integration
+- [Using the AuthenticationView in SwiftUI](https://github.com/mimikgit/mimik-ai-agentix-playground-example-iOS)
+- [Managing Applications via Developer Console](https://github.com/mimikgit/mimik-ai-agentix-playground-example-iOS)
 
 ---
 
